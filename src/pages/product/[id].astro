@@ -2,7 +2,11 @@
 import Layout from "@layout/Layout.astro";
 import Counter from "@components/ui/counter";
 import AddToCartButton from "@components/ui/add-to-cart";
+import FbBrandIcon from "@assets/svg/brand-facebook.svg";
+import XBrandIcon from "@assets/svg/brand-x.svg";
+import { FB_SHARE_URI, X_SHARE_URI } from "@constants";
 import { mock } from "@mock.ts";
+import RelatedProducts from "@components/related-products.astro";
 const { id } = Astro.params;
 
 const product = mock.find((prod) => prod._id === id);
@@ -11,28 +15,63 @@ if (!product) return Astro.redirect("/");
 ---
 
 <Layout pageName={`${product.name} - Comprar`}>
-  <section class="flex text-brand-1">
-    <div class="flex flex-row gap-2 p-3">
+  <section class="flex flex-col text-brand-1">
+    <div class="flex flex-col md:flex-row gap-2 p-3">
       <img
         src={`/products/${product.assetPath}`}
         alt={product.name}
         loading="lazy"
         transition:name={`image-product-${product._id}`}
-        class="max-h-[450px] h-full rounded"
+        class="max-h-[380px] w-full h-full rounded aspect-square object-cover"
       />
-      <div class="w-full">
+      <div class="w-full flex flex-col gap-5 font-brand-secondary">
         <h3 class="text-3xl" transition:name={`name-product-${product._id}`}>
           {product.name}
         </h3>
 
-        <strong>
+        <strong class="text-xl">
           ${product.price}
         </strong>
 
-        <Counter prodId={product._id} client:only="react" />
+        <Counter client:only="react" prodId={product._id} />
 
         <AddToCartButton client:only="react" product={product} />
+
+        <small>{product.size}</small>
+
+        <small>{product.brightness}</small>
+
+        <p>{product.description}</p>
+
+        <ul class="flex items-center justify-center gap-4">
+          <li>
+            <a
+              href={`${FB_SHARE_URI}${Astro.url}`}
+              target="_blank"
+              title="Compartir en Facebook!"
+              aria-label="Compartir en Facebook!"
+              rel="noopener noreferrer"
+              class="flex items-center gap-1 px-4 py-2 rounded-md transition-colors hover:text-white hover:bg-brand-1"
+            >
+              <FbBrandIcon /> Compartir
+            </a>
+          </li>
+          <li>
+            <a
+              href={`${X_SHARE_URI}${Astro.url}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Compartir en X!"
+              aria-label="Compartir en X!"
+              class="flex items-center gap-1 px-4 py-2 rounded-md transition-colors hover:text-white hover:bg-brand-1"
+            >
+              <XBrandIcon /> Compartir
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
+
+    <RelatedProducts prodId={product._id} />
   </section>
 </Layout>

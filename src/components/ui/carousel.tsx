@@ -42,6 +42,7 @@ export default function Carousel({ assets }: Props) {
         <div className="absolute bottom-2 z-10 flex items-center justify-center gap-1 w-full">
           {assets.map((_, index) => (
             <span
+              key={index}
               onClick={() => setPosition(index)}
               style={{
                 backgroundColor:

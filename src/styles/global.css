@@ -4,6 +4,7 @@
   --color-brand-1: #7a1313;
 
   --font-brand-primary: "Primary";
+  --font-brand-secondary: "Secondary";
 
   --animate-zoom: zoom 7s ease;
 }
@@ -15,6 +16,12 @@
   font-weight: 400;
 }
 
+/* FUENTE 2 */
+@font-face {
+  font-family: "Secondary";
+  src: url("/fonts/font-2.woff2") format("woff2");
+  font-weight: 400;
+}
 body {
   font-family: var(--font-brand-primary);
 }

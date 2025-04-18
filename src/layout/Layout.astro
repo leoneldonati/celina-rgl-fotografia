@@ -1,8 +1,9 @@
 ---
 import Header from "@components/header.astro";
 import PreHeader from "@components/pre-header.astro";
-import "@styles/global.css";
 import { ClientRouter } from "astro:transitions";
+import { Toaster } from "react-hot-toast";
+import "@styles/global.css";
 interface Props {
   pageName?: string;
 }
@@ -24,8 +25,34 @@ const defaultTitle = "Celina RGL Fotografía";
     <Header />
 
     <PreHeader />
-    <main class="px-2 max-w-2xl mx-auto flex flex-grow">
+    <main class="px-2 max-w-3xl mx-auto flex flex-grow">
       <slot />
     </main>
+
+    <Toaster
+      position="top-center"
+      reverseOrder={false}
+      gutter={8}
+      toastOptions={{
+        // Define default options
+        className: "",
+        duration: 5000,
+        removeDelay: 1000,
+        style: {
+          background: "var(--color-brand-1)",
+          color: "#fff",
+        },
+
+        // Default options for specific types
+        success: {
+          duration: 2000,
+          iconTheme: {
+            primary: "green",
+            secondary: "black",
+          },
+        },
+      }}
+      client:load
+    />
   </body>
 </html>

@@ -6,6 +6,7 @@ interface CartStore {
   getProductCount: (id: string) => number;
   action: (id: string, op: (quantity: number) => number) => void;
   addOne: (product: ProductInCart) => void;
+  findById: (id: string) => boolean;
 }
 export const useCartStore = create(
   persist<CartStore>(
@@ -38,11 +39,23 @@ export const useCartStore = create(
         set({ list: updatedList });
       },
       addOne: (prod) => {
-        const { list } = get();
+        const { list, findById } = get();
 
+        if (findById(prod._id)) {
+          const filtered = list.filter((p) => p._id !== prod._id);
+
+          set({ list: filtered });
+
+          return;
+        }
         const newList = [prod, ...list];
 
         set({ list: newList });
+      },
+      findById: (id) => {
+        const { list } = get();
+
+        return list.find((prod) => prod._id === id) !== undefined;
       },
     }),
     { name: "rgl-cart" }
