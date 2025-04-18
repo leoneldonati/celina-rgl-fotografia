@@ -19,8 +19,10 @@ body {
   font-family: var(--font-brand-primary);
 }
 
+button {
+  cursor: pointer;
+}
 /* ANIMATION ZOOM */
-
 @keyframes zoom {
   from {
     transform: scale(1);

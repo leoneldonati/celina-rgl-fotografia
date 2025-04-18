@@ -1,7 +1,7 @@
 ---
+import Header from "@components/header.astro";
+import PreHeader from "@components/pre-header.astro";
 import "@styles/global.css";
-import Logo from "@assets/svg/logo.svg";
-import CartButton from "@components/ui/CartButton";
 import { ClientRouter } from "astro:transitions";
 interface Props {
   pageName?: string;
@@ -16,22 +16,15 @@ const defaultTitle = "Celina RGL Fotografía";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.svg" type="xml+svg" />
     <ClientRouter fallback="none" />
     <title>{pageName ?? defaultTitle}</title>
   </head>
-  <body>
-    <header class="p-3 flex justify-between">
-      <Logo class="max-w-[200px] w-full h-auto text-brand-1" />
+  <body class="max-w-4xl mx-auto min-h-screen flex flex-col">
+    <Header />
 
-      <CartButton client:only="react" />
-    </header>
-
-    <header class="flex justify-center gap-5 text-brand-1">
-      <a href="/">Inicio</a>
-      <a href="/products">Productos</a>
-      <a href="">Contacto</a>
-    </header>
-    <main class="px-2">
+    <PreHeader />
+    <main class="px-2 max-w-2xl mx-auto flex flex-grow">
       <slot />
     </main>
   </body>

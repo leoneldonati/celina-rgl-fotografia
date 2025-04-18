@@ -1,19 +1,23 @@
 ---
 import Carousel from "@components/ui/carousel";
 import Layout from "@layout/Layout.astro";
+import FeaturedProducts from "@components/featured-products.astro";
+
 import asset1 from "@assets/carousel/1.avif";
 import asset2 from "@assets/carousel/2.avif";
 import asset3 from "@assets/carousel/3.avif";
 import asset4 from "@assets/carousel/4.avif";
-
+import { mock } from "@mock";
 const assets = [asset1, asset2, asset3, asset4];
 ---
 
 <Layout>
   <section class="flex flex-col items-center mt-5 mb-3 text-brand-1">
-    <h1 class="text-3xl">¡Bienvenidos!</h1>
-    <h2>Eventos, cuadros, diseño.</h2>
+    <h1 class="text-3xl font-bold">¡Bienvenidos!</h1>
+    <h2 class="mb-5 italic">Eventos, cuadros, diseños.</h2>
 
     <Carousel client:load assets={assets} />
+
+    <FeaturedProducts products={mock} />
   </section>
 </Layout>

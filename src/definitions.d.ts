@@ -5,6 +5,7 @@ interface Product {
   size: string;
   brightness: string;
   description: string;
+  assetPath: string;
 }
 
 interface ProductInCart extends Product {

@@ -1,0 +1,28 @@
+---
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+---
+
+<a
+  href={`/product/${product._id}`}
+  class="flex flex-col items-center"
+  title={`Ver ${product.name}`}
+  aria-label={`Ver ${product.name}`}
+>
+  <img
+    src={`/products/${product.assetPath}`}
+    alt={product.description}
+    loading="lazy"
+    class="aspect-square object-contain"
+    transition:name={`image-product-${product._id}`}
+  />
+
+  <p class="text-xl" transition:name={`name-product-${product._id}`}>
+    {product.name}
+  </p>
+
+  <strong>${product.price}</strong>
+</a>

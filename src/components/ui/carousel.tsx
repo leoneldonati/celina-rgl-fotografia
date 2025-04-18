@@ -17,20 +17,25 @@ export default function Carousel({ assets }: Props) {
   }, []);
   return (
     <div className="flex flex-col items-center gap-2">
-      <picture className="max-h-full overflow-x-hidden relative rounded-md">
+      <picture className="max-h-full overflow-hidden relative rounded-md">
         <div
           className="flex transition-transform"
           style={{ transform: `translateX(-${position * 100}%)` }}
         >
           {assets.map((image, index) => (
-            <img
-              src={image.src}
+            <a
               key={index}
-              loading="lazy"
-              width={image.width}
-              height={image.height}
-              className={index === position ? "animate-zoom" : ""}
-            />
+              href={index % 2 === 0 ? "/products" : "/contact"}
+              className="w-full flex flex-shrink-0"
+            >
+              <img
+                src={image.src}
+                loading="lazy"
+                width={image.width}
+                height={image.height}
+                className={`${index === position ? "animate-zoom" : ""} w-full`}
+              />
+            </a>
           ))}
         </div>
 
@@ -49,7 +54,10 @@ export default function Carousel({ assets }: Props) {
       </picture>
 
       <div className="flex items-center gap-1">
-        <button className="transition-transform active:scale-95">
+        <button
+          onClick={() => setPosition((pos) => (pos === 0 ? 0 : pos - 1))}
+          className="transition-transform active:scale-95"
+        >
           <img
             src={LeftArrow.src}
             width={LeftArrow.width}
@@ -61,7 +69,12 @@ export default function Carousel({ assets }: Props) {
         <strong>
           {position + 1}/{assets.length}
         </strong>
-        <button className="transition-transform active:scale-95">
+        <button
+          onClick={() =>
+            setPosition((pos) => (pos === assets.length - 1 ? 0 : pos + 1))
+          }
+          className="transition-transform active:scale-95"
+        >
           <img
             src={RightArrow.src}
             width={RightArrow.width}

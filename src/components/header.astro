@@ -1,0 +1,10 @@
+---
+import Logo from "@assets/svg/logo.svg";
+import CartButton from "./ui/cart-button";
+---
+
+<header class="p-3 flex justify-between">
+  <Logo class="max-w-[200px] w-full h-auto text-brand-1" />
+
+  <CartButton client:only="react" />
+</header>
