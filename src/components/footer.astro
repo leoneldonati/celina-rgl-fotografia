@@ -1,1 +1,59 @@
-<footer></footer>
+---
+import InstagramIcon from "@assets/svg/brand-instagram.svg";
+import WpIcon from "@assets/svg/brand-whatsapp.svg";
+import MailIcon from "@assets/svg/mail.svg";
+import { MAIL, INSTAGRAM_LINK, PHONE_NUMBER } from "@constants";
+import LogoSinLetras from "@assets/svg/logo-sin-letras.svg";
+import LogoConLetras from "@assets/svg/logo.svg";
+const message =
+  "¡Hola Celina 📷! Quiero realizar una *consulta sobre tu trabajo*, estoy interesado/a.";
+---
+
+<footer
+  class="p-3 bg-brand-1/60 text-white flex md:flex-row flex-col justify-between items-center gap-3"
+>
+  <div class="flex md:flex-row flex-col items-center gap-2">
+    <LogoSinLetras class="size-20" />
+    <LogoConLetras class="size-20" />
+  </div>
+
+  <ul class="flex flex-col items-center justify-center gap-3">
+    <li>
+      <a
+        href={INSTAGRAM_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        title="¡Buscame en Instagram!"
+        aria-label="¡Buscame en Instagram!"
+        class="[&:hover>svg]:animate-leftToRight flex items-center gap-2"
+      >
+        <InstagramIcon class="size-10" /> Buscame en Instagram
+      </a>
+    </li>
+    <li>
+      <a
+        href={`mailto:${MAIL}`}
+        rel="noopener noreferrer"
+        title="¡Mandame un mail!"
+        aria-label="¡Mandame un mail!"
+        class="[&:hover>svg]:animate-leftToRight flex items-center gap-2"
+      >
+        <MailIcon class="size-10" />
+        {MAIL}
+      </a>
+    </li>
+    <li>
+      <a
+        href={`https://api.whatsapp.com/send?phone=${PHONE_NUMBER}&text=${message}`}
+        target="_blank"
+        title="¡Contactame en WhatsApp!"
+        aria-label="¡Contactame en WhatsApp!"
+        rel="noopener noreferrer"
+        class="[&:hover>svg]:animate-leftToRight flex items-center gap-2"
+      >
+        <WpIcon class="size-10" />
+        Contactame por WhatsApp
+      </a>
+    </li>
+  </ul>
+</footer>

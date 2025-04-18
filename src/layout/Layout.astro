@@ -4,6 +4,7 @@ import PreHeader from "@components/pre-header.astro";
 import { ClientRouter } from "astro:transitions";
 import { Toaster } from "react-hot-toast";
 import "@styles/global.css";
+import Footer from "@components/footer.astro";
 interface Props {
   pageName?: string;
 }
@@ -29,6 +30,7 @@ const defaultTitle = "Celina RGL Fotografía";
       <slot />
     </main>
 
+    <Footer />
     <Toaster
       position="top-center"
       reverseOrder={false}
