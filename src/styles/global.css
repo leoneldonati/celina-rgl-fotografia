@@ -4,6 +4,8 @@
   --color-brand-1: #7a1313;
 
   --font-brand-primary: "Primary";
+
+  --animate-zoom: zoom 7s ease;
 }
 
 /* FUENTE 1 */
@@ -15,4 +17,15 @@
 
 body {
   font-family: var(--font-brand-primary);
+}
+
+/* ANIMATION ZOOM */
+
+@keyframes zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
 }

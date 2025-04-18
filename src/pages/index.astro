@@ -1,6 +1,12 @@
 ---
 import Carousel from "@components/ui/carousel";
 import Layout from "@layout/Layout.astro";
+import asset1 from "@assets/carousel/1.avif";
+import asset2 from "@assets/carousel/2.avif";
+import asset3 from "@assets/carousel/3.avif";
+import asset4 from "@assets/carousel/4.avif";
+
+const assets = [asset1, asset2, asset3, asset4];
 ---
 
 <Layout>
@@ -8,6 +14,6 @@ import Layout from "@layout/Layout.astro";
     <h1 class="text-3xl">¡Bienvenidos!</h1>
     <h2>Eventos, cuadros, diseño.</h2>
 
-    <Carousel client:load />
+    <Carousel client:load assets={assets} />
   </section>
 </Layout>
