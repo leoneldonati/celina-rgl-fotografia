@@ -1,0 +1,15 @@
+---
+import ProductCard from "@components/product-card.astro";
+import Layout from "@layout/Layout.astro";
+import { mock } from "@mock";
+---
+
+<Layout pageName="Productos que pueden gustarte!">
+  <section class="text-brand-1 py-4 flex flex-col gap-4">
+    <h2 class="text-3xl">Todos los productos</h2>
+
+    <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      {mock.map((prod) => <ProductCard product={prod} />)}
+    </div>
+  </section>
+</Layout>

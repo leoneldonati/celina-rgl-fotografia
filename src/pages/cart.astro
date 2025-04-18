@@ -1,0 +1,10 @@
+---
+import Layout from "@layout/Layout.astro";
+import CartFeed from "@components/ui/cart-feed";
+---
+
+<Layout pageName="Tu carrito! 🛒">
+  <section class="text-brand-1 py-4 w-full">
+    <CartFeed client:only="react" />
+  </section>
+</Layout>
