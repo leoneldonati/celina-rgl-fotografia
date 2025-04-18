@@ -1,5 +1,59 @@
 ---
 import Layout from "@layout/Layout.astro";
+import { INSTAGRAM_LINK, MAIL, PHONE_NUMBER } from "@constants";
+import InstagramIcon from "@assets/svg/brand-instagram.svg";
+import WpIcon from "@assets/svg/brand-whatsapp.svg";
+import MailIcon from "@assets/svg/mail.svg";
+const message =
+  "¡Hola Celina 📷! Quiero realizar una *consulta sobre tu trabajo*, estoy interesado/a.";
 ---
 
-<Layout />
+<Layout pageName="Contáctame y trabajemos juntos!">
+  <section class="text-brand-1 py-4 flex flex-col gap-4">
+    <p class="text-xl">
+      Fotógrafa para diversos tipos de eventos. <strong
+        >Rosario, Santa Fé.</strong
+      >
+    </p>
+
+    <ul class="flex flex-col items-center justify-center gap-3">
+      <li>
+        <a
+          href={INSTAGRAM_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="¡Buscame en Instagram!"
+          aria-label="¡Buscame en Instagram!"
+          class="[&:hover>svg]:animate-leftToRight flex items-center gap-2"
+        >
+          <InstagramIcon class="size-10" /> Buscame en Instagram
+        </a>
+      </li>
+      <li>
+        <a
+          href={`mailto:${MAIL}`}
+          rel="noopener noreferrer"
+          title="¡Mandame un mail!"
+          aria-label="¡Mandame un mail!"
+          class="[&:hover>svg]:animate-leftToRight flex items-center gap-2"
+        >
+          <MailIcon class="size-10" />
+          {MAIL}
+        </a>
+      </li>
+      <li>
+        <a
+          href={`https://api.whatsapp.com/send?phone=${PHONE_NUMBER}&text=${message}`}
+          target="_blank"
+          title="¡Contactame en WhatsApp!"
+          aria-label="¡Contactame en WhatsApp!"
+          rel="noopener noreferrer"
+          class="[&:hover>svg]:animate-leftToRight flex items-center gap-2"
+        >
+          <WpIcon class="size-10" />
+          Contactame por WhatsApp
+        </a>
+      </li>
+    </ul>
+  </section>
+</Layout>

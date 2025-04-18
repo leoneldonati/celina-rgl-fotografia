@@ -7,6 +7,7 @@
   --font-brand-secondary: "Secondary";
 
   --animate-zoom: zoom 7s ease;
+  --animate-leftToRight: leftToRight 0.4s ease-out;
 }
 
 /* FUENTE 1 */
@@ -29,6 +30,11 @@ body {
 button {
   cursor: pointer;
 }
+
+li {
+  width: 100%;
+}
+
 /* ANIMATION ZOOM */
 @keyframes zoom {
   from {
@@ -36,5 +42,24 @@ button {
   }
   to {
     transform: scale(1.2);
+  }
+}
+
+/* ANIMATION ROTATE TO ALL SIDES */
+@keyframes leftToRight {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0);
   }
 }
