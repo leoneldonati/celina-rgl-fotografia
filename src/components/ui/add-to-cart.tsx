@@ -9,7 +9,7 @@ export default function AddToCartButton({ product }: Props) {
 
   return (
     <button
-      className="px-4 py-2 rounded-md bg-brand-1 text-white font-bold"
+      className="px-4 py-2 rounded-md bg-brand-1 text-white font-bold w-full"
       onClick={() => {
         if (!findById(product._id)) {
           toast.success(`${product.name} añadido al carro!`);

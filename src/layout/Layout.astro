@@ -21,11 +21,11 @@ const defaultTitle = "Celina RGL Fotografía";
     <ClientRouter fallback="none" />
     <title>{pageName ?? defaultTitle}</title>
   </head>
-  <body class="max-w-4xl mx-auto min-h-screen flex flex-col">
+  <body class="max-w-4xl w-fit mx-auto min-h-screen flex flex-col">
     <Header />
 
     <PreHeader />
-    <main class="px-2 max-w-3xl mx-auto flex flex-grow">
+    <main class="px-2 max-w-3xl w-full mx-auto flex flex-grow">
       <slot />
     </main>
 
