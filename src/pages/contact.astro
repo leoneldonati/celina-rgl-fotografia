@@ -4,17 +4,27 @@ import { INSTAGRAM_LINK, MAIL, PHONE_NUMBER } from "@constants";
 import InstagramIcon from "@assets/svg/brand-instagram.svg";
 import WpIcon from "@assets/svg/brand-whatsapp.svg";
 import MailIcon from "@assets/svg/mail.svg";
+import Celina from "@assets/celina.avif";
 const message =
   "¡Hola Celina 📷! Quiero realizar una *consulta sobre tu trabajo*, estoy interesado/a.";
 ---
 
 <Layout pageName="Contáctame y trabajemos juntos!">
-  <section class="text-brand-1 py-4 flex flex-col gap-4">
+  <section class="text-brand-1 py-4 flex flex-col items-center gap-4">
     <p class="text-xl">
       Fotógrafa para diversos tipos de eventos. <strong
         >Rosario, Santa Fé.</strong
       >
     </p>
+
+    <img
+      src={Celina.src}
+      alt="Celina Fotografía foto desde un autódromo."
+      loading="lazy"
+      width={300}
+      height={300}
+      class="aspect-square object-cover rounded-full w-full max-w-[300px]"
+    />
 
     <ul class="flex flex-col items-center justify-center gap-3">
       <li>
@@ -24,7 +34,7 @@ const message =
           rel="noopener noreferrer"
           title="¡Buscame en Instagram!"
           aria-label="¡Buscame en Instagram!"
-          class="[&:hover>svg]:animate-leftToRight flex items-center gap-2"
+          class="[&:hover>svg]:animate-leftToRight flex flex-col md:flex-row md:items-center items-start gap-2"
         >
           <InstagramIcon class="size-10" /> Buscame en Instagram
         </a>
@@ -35,7 +45,7 @@ const message =
           rel="noopener noreferrer"
           title="¡Mandame un mail!"
           aria-label="¡Mandame un mail!"
-          class="[&:hover>svg]:animate-leftToRight flex items-center gap-2"
+          class="[&:hover>svg]:animate-leftToRight flex flex-col md:flex-row md:items-center items-start gap-2"
         >
           <MailIcon class="size-10" />
           {MAIL}
@@ -48,7 +58,7 @@ const message =
           title="¡Contactame en WhatsApp!"
           aria-label="¡Contactame en WhatsApp!"
           rel="noopener noreferrer"
-          class="[&:hover>svg]:animate-leftToRight flex items-center gap-2"
+          class="[&:hover>svg]:animate-leftToRight flex flex-col md:flex-row md:items-center items-start gap-2"
         >
           <WpIcon class="size-10" />
           Contactame por WhatsApp
