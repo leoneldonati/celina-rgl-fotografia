@@ -1,0 +1,38 @@
+---
+import "@styles/global.css";
+import Logo from "@assets/svg/logo.svg";
+import CartButton from "@components/ui/CartButton";
+import { ClientRouter } from "astro:transitions";
+interface Props {
+  pageName?: string;
+}
+const { pageName } = Astro.props;
+
+const defaultTitle = "Celina RGL Fotografía";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <ClientRouter fallback="none" />
+    <title>{pageName ?? defaultTitle}</title>
+  </head>
+  <body>
+    <header class="p-3 flex justify-between">
+      <Logo class="max-w-[200px] w-full h-auto text-brand-1" />
+
+      <CartButton client:only="react" />
+    </header>
+
+    <header class="flex justify-center gap-5 text-brand-1">
+      <a href="/">Inicio</a>
+      <a href="/products">Productos</a>
+      <a href="">Contacto</a>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-1: #7a1313;
+
+  --font-brand-primary: "Primary";
+}
+
+/* FUENTE 1 */
+@font-face {
+  font-family: "Primary";
+  src: url("/fonts/font-1.woff2") format("woff2");
+  font-weight: 400;
+}
+
+body {
+  font-family: var(--font-brand-primary);
+}
